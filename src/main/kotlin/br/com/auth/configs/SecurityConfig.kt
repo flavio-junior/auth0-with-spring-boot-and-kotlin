@@ -61,6 +61,8 @@ class SecurityConfig {
                         "/v3/api-docs/**",
                         "/swagger-ui/**"
                     ).permitAll()
+                    .requestMatchers("/api/user/profile/v1/**").authenticated()
+                    .anyRequest().authenticated()
             }
             .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter::class.java)
             .cors { _: CorsConfigurer<HttpSecurity?>? -> }

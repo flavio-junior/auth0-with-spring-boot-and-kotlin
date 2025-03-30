@@ -92,7 +92,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"flaviojunior.ofc@outlook.com\",\n    \"password\": \"admin123\",\n    \"type_account\": \"ADMIN\"\n}",
+							"raw": "{\n    \"email\": \"flaviojunior.work@gmail.com\",\n    \"password\": \"admin123\",\n    \"type_account\": \"ADMIN\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -116,7 +116,7 @@
 					"response": []
 				},
 				{
-					"name": "Authentication",
+					"name": "SignIn",
 					"event": [
 						{
 							"listen": "test",
@@ -329,6 +329,176 @@
 							]
 						},
 						"description": "Create New Password"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "check user authenticated",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/user/profile/v1/authenticated",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"profile",
+								"v1",
+								"authenticated"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change info of user",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"flávio-copy\",\r\n    \"surname\": \"fúnior-copy\",\r\n    \"userName\": \"flavio-junior-copy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/user/profile/v1/change/info",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"profile",
+								"v1",
+								"change",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update email of user",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"flaviojunior.work@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/user/profile/v1/change/email",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"profile",
+								"v1",
+								"change",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password of user",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"flaviojunior.work@gmail.com\",\r\n    \"password\": \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/user/profile/v1/change/password",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"profile",
+								"v1",
+								"change",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete my account",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/user/profile/v1/delete/user",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"profile",
+								"v1",
+								"delete",
+								"user"
+							]
+						}
 					},
 					"response": []
 				}
